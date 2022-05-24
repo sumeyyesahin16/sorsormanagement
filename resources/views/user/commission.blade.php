@@ -21,7 +21,6 @@
 @section('content')
     <h1>Commission</h1>
 
-
 @endsection
 
 @section('js')

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Users;
 
 class UserController extends Controller
 {
@@ -11,7 +12,8 @@ class UserController extends Controller
     }
 
     public function commission(){
-        return view('user.commission');
+        $user=Users::where('username','o')->first();
+        return $user;
     }
 
     public function tracking(){
