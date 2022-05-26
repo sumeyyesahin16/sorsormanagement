@@ -48,5 +48,16 @@
 
             @include('app.footer-scripts')
 
+
+                    <!--Includes Extras-Js-->
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                  <script src="/extras/js/axios.min.js"></script>
+                    <script src="/extras/js/bootstrap.min.js"></script>
+                    <script src="/extras/js/bootstrap-fileinput.js"></script>
+
+                    <script src="/extras/js/datatables.min.js"></script>
+                    <script src="/extras/js/functions.js"></script>
+                    <script src="/extras/js/jquery.classyqr.js"></script>
+
     </body>
 </html>

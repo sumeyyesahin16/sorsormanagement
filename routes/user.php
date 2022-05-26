@@ -6,6 +6,9 @@ Route::any('commission',[\App\Http\Controllers\User\UserController::class,'commi
 Route::any('tracking',[\App\Http\Controllers\User\UserController::class,'tracking']);
 Route::any('/',[\App\Http\Controllers\User\UserController::class,'index']);
 
+Route::get('/dataservice',[\App\Http\Controllers\User\UserController::class, 'dataservice'])->name('user_dataservice');
+
+
 
 
 

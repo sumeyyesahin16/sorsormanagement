@@ -4,10 +4,10 @@
 @section('page-header')
                         <!-- PAGE-HEADER -->
                             <div>
-                                <h1 class="page-title">Dashboard 01</h1>
+                                <h1 class="page-title">Dashboard </h1>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard 01</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard </li>
                                 </ol>
                             </div>
                         <!-- PAGE-HEADER END -->
@@ -23,9 +23,10 @@
 												<div class="counter-icon bg-primary mb-0 box-primary-shadow">
 													<i class="fe fe-trending-up text-white"></i>
 												</div>
-												<h6 class="mt-4 mb-1">Total Sales</h6>
-												<h2 class="mb-2 number-font">34,516</h2>
-												<p class="text-muted">Sed ut perspiciatis unde omnis accusantium doloremque</p>
+												<h6 class="mt-4 mb-1">Total User Count</h6>
+												<h2 class="mb-2 number-font">{{$id->id}}</h2>
+												<p class="text-muted"></p>
+
 											</div>
 										</div>
 									</div>

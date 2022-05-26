@@ -16,7 +16,7 @@
                                 <img src="{{URL::asset('assets/images/users/10.jpg')}}" alt="user-img" class="avatar-xl rounded-circle">
                             </div>
                             <div class="user-info">
-                                <h6 class=" mb-0 text-dark">Elizabeth Dyer</h6>
+                                <h6 class=" mb-0 text-dark">SorSor Admin</h6>
                                 <span class="text-muted app-sidebar__user-name text-sm">Administrator</span>
                             </div>
                         </div>
