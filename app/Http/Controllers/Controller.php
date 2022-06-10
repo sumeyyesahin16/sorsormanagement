@@ -19,7 +19,6 @@ class Controller extends BaseController
                 $model->orderBy($columns[$order['column']]['data'], $order['dir']);
             }
         }
-
         return $table->collection($model->get());
     }
 

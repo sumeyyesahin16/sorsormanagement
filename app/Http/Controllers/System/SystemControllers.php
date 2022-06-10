@@ -7,7 +7,10 @@ use App\Http\Controllers\Controller;
 class SystemControllers extends Controller
 {
     public function main(){
-        return view('system.main_showcase');
+        $deneme=1;
+        return view('system.main_showcase',[
+            'deneme'    => $deneme
+        ]);
     }
 
     public function discover(){

@@ -92,6 +92,8 @@
                             <a class="side-menu__item"  data-toggle="slide" href="#"><i class="side-menu__icon ti-package"></i><span class="side-menu__label">Events Management</span><i class="angle fa fa-angle-right"></i></a>
                             <ul class="slide-menu">
                                 <li><a class="slide-item" href="{{ url('/' . $page='events/events') }}"><span>Events</span></a></li>
+                                <li><a class="slide-item" href="{{ url('/' . $page='events/eventCategories') }}"><span>Events Categories</span></a></li>
+
                             </ul>
                         </li>
 
