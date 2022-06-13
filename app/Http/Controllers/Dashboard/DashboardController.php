@@ -13,15 +13,13 @@ class DashboardController
 
     public function index(){
 
-        $userData=User::orderby('id','desc')
-            ->first();
+        $userData=User::get();
+        $userCount=$userData->count();
 
         $userVerified=User::where('verify_status',1)->get();
         $userPro=User::where('is_pro',1)->get();
         $userVerifiedCount=count($userVerified);
         $userProCount=count($userPro);
-
-
 
         $que    = <<<QUERY
         SELECT
@@ -58,7 +56,7 @@ class DashboardController
 
 
         return view('app.index',[
-            "userData"=>$userData,
+            "userCount"=>$userCount,
             "userShares"=>$userShares,
             "purchasedContent"=>$purchasedContent,
             "userPayment"=>$userPayment,

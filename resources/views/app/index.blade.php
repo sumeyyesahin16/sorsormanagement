@@ -13,6 +13,7 @@
                         <!-- PAGE-HEADER END -->
 @endsection
 
+
 @section('content')
 
 						<!-- ROW-1 -->
@@ -36,12 +37,11 @@
 													<i class="fe fe-trending-up text-white"></i>
 												</div>
 												<h6 class="mt-4 mb-1">Users' Count</h6>
-												<h2 class="mb-2 number-font">{{$userData->id}}</h2>
+												<h2 class="mb-2 number-font">{{$userCount}}</h2>
 												<p class="text-muted"></p>
 											</div>
 										</div>
 									</div><!--Col Ends-->
-
 
 									<!--Col Start -->
 									<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
@@ -103,6 +103,8 @@
 						</div>
 						<!-- ROW-1 END -->
 
+
+
 						<!-- ROW-2 -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
@@ -161,7 +163,6 @@
 											</div>
 										</div>
 									</div><!--Col Ends-->
-
 
 								</div>
 							</div>
@@ -253,21 +254,13 @@
 							</div>
 						</div><!-- ROW-4 END -->
 
-						<div class="col-lg-6 col-md-12">
-							<div class="card">
-								<div class="card-header">
-									<h3 class="card-title">Donut chart with multiple colors</h3>
-								</div>
-								<div class="card-body">
-									<div id="morrisBar9" class="chartsh"></div>
-								</div>
-							</div>
-						</div>
 
 @endsection
 
 @section('js')
-
+	<script src="{{ URL::asset('assets/plugins/counters/counterup.min.js') }}"></script>
+	<script src="{{ URL::asset('assets/plugins/counters/waypoints.min.js') }}"></script>
+	<script src="{{ URL::asset('assets/plugins/counters/counters-1.js') }}"></script>
 @endsection
 
 

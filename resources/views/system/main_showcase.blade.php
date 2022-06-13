@@ -19,18 +19,13 @@
 
 
 @section('content')
-    <h1>main</h1>
+    <button type="button" onclick="DoSomething(1);">Gönder</button>
 
 @endsection
 
 @section('js')
-    <script src="{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/chart/utils.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/echarts/echarts.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/apexcharts/apexcharts.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
-    <script src="{{ URL::asset('assets/plugins/peitychart/peitychart.init.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/index1.js') }}"></script>
+
+
 @endsection
 
 

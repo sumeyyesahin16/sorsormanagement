@@ -44,7 +44,7 @@ class   RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::middleware(['web','auth'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
@@ -56,36 +56,42 @@ class   RouteServiceProvider extends ServiceProvider
                     });
              */
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('user')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/user.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('share')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/share.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('cash')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/cash.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('system')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/system.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('events')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/events.php'));
 
-            Route::middleware(['web'])
+            Route::middleware(['web','auth'])
                 ->prefix('complaints')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/complaints.php'));
              });
+
+            Route::middleware(['web'])
+                ->prefix('admin')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
     }
 
     /**

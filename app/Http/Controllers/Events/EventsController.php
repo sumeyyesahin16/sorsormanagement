@@ -12,6 +12,9 @@ use Yajra\DataTables\DataTables;
 
 class EventsController extends Controller
 {
+    public function index(){
+        return view('event.events');
+    }
 
     public function events(){
         return view('event.events_category');
@@ -25,10 +28,30 @@ class EventsController extends Controller
         return redirect()->route('events');
     }
 
-    public function dataservice(Request $request){
+    public function eventDataService(Request $request){
         $inputs = $request->all();
 
         $data = Event::orderBy('id','asc');
+
+        if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+            return $this->getDataTable(new DataTables(), $data, $inputs)
+                ->addColumn('edit', function ($query){
+                    return '<a href="/user/'.$query->id.'/status" class="btn btn-outline-success">Edit</a>';
+                })
+                ->addColumn('delete', function ($query){
+                    return '<a href="/user/'.$query->id.'/status" class="btn btn-outline-danger">Delete</a>';
+                })
+                ->rawColumns(['edit','delete',])
+                ->make(true);
+        }
+        return  ResultControl::Success('', $data->get());
+    }
+
+    public function dataservice(Request $request){
+        $inputs = $request->all();
+
+        $data = SystemEventCategory::orderBy('id','asc');
 
         if ($request->has('data_type') && $request->input('data_type') == 1) {
 

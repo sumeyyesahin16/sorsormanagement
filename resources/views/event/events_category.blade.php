@@ -58,7 +58,7 @@
         <div class="col-12 col-sm-12">
             <div class="card ">
                 <div class="card-header">
-                    <h3 class="card-title mb-0">Users List</h3>
+                    <h3 class="card-title mb-0">Events</h3>
                 </div>
                 <div class="card-body">
                     <div class="grid-margin">
@@ -67,14 +67,12 @@
                                 <table id="grdDataTable" class="table card-table table-vcenter align-items-center text-center">
                                     <thead class="text-center">
                                     <tr class="">
-                                        <th>User</th>
                                         <th>Event Name</th>
-                                        <th>About</th>
+                                        <th>Description</th>
                                         <th>Detail</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -105,17 +103,15 @@
 
     <script type="text/javascript">
 
-        var xxx = {{ $deneme }};
 
         var myDataTable=null;
         var filterData = '';
-        var pageDataPath = '{{route('event_dataservice')}}?data_type=1';
+        var pageDataPath = '{{route('event_category_dataservice')}}?data_type=1';
 
         $(document).ready(function (){
             myDataTable = getTable($("#grdDataTable"), pageDataPath + filterData, [
-                {data: 'user_id'},
                 {data: 'name'},
-                {data: 'about'},
+                {data: 'description'},
                 {data:'detail'}
 
             ],[], null);

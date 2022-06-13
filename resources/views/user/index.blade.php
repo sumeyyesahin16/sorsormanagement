@@ -22,6 +22,7 @@
 
 @section('content')
 
+
     <!-- ROW-5 -->
     <div class="row">
 
@@ -77,6 +78,7 @@
 
 
 
+
 @endsection
 
 @section('js')
@@ -87,6 +89,7 @@
     <script src="{{ URL::asset('assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/peitychart/peitychart.init.js') }}"></script>
     <script src="{{ URL::asset('assets/js/index1.js') }}"></script>
+
 
     <script src="{{ URL::asset('assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>

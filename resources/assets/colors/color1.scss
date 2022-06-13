@@ -42,7 +42,7 @@ button.bg-primary-gradient {
 }
 a.text-primary {
 	&:hover, &:focus {
-		color: #4e12b6 !important;
+		color: $primary-1 !important;
 	}
 }
 .table-primary {
@@ -294,7 +294,7 @@ timeline__item:after {
 	color: #f5f3f9;
 }
 .breadcrumb-item1 a, {
-	color: #5e2dd8;
+	color: #3675FA;
 }
 
 .panel-title1 a {
@@ -304,7 +304,7 @@ timeline__item:after {
 	border-color: rgb(94, 45, 216) !important;
 }
 .panel-default>.panel-heading {
-	color: #5e2dd8;
+	color: #3675FA;
 }
 /*-----Badges-----*/
 
@@ -746,7 +746,7 @@ div.conv-form-wrapper div#messages div.message.from {
 		color: #8061ce;
 	}
 	.text-primary {
-		color: #8061ce !important;
+		color: $primary-1 !important;
 	}
 	.panel-default>.panel-heading, .panel-tabs a {
 		color: #8061ce;
@@ -845,6 +845,7 @@ div.conv-form-wrapper div#messages div.message.from {
 	.color-menu .mobile-header {
 		background: $primary-1 !important;
 	}
+
 }
 @media only screen and (max-width: 991px) {
 	.color-hor-menu {

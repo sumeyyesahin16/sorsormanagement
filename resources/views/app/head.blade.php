@@ -30,7 +30,7 @@
 		<link href="{{URL::asset('assets/plugins/sidebar/sidebar.css')}}" rel="stylesheet"/>
 
 		<!-- COLOR SKIN CSS -->
-		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{URL::asset('assets/colors/color1.css')}}" />
+		<link id="theme" rel="stylesheet" type="text/css" media="all" href="{{URL::asset('assets/colors/color4.css')}}" />
 
 		<!-- Bootstrap Table Css-->
 		<link rel="stylesheet" href="/extras/css/datatables.min.css">

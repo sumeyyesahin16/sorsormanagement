@@ -119,17 +119,9 @@
                                             <tr>
                                                 <td><strong>Full Name :</strong> {{$user->name}}</td>
                                             </tr>
-                                            <tr>
-                                                <td><strong>Location :</strong> USA</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Languages :</strong> English, German, Spanish.</td>
-                                            </tr>
+
                                             </tbody>
                                             <tbody class="col-lg-12 col-xl-6 p-0">
-                                            <tr>
-                                                <td><strong>Website :</strong> abcdz.com</td>
-                                            </tr>
                                             <tr>
                                                 <td><strong>Email :</strong> {{$user->email}}</td>
                                             </tr>
@@ -155,6 +147,13 @@
                 </div>
             </div>
         </div><!-- COL-END -->
+
+
+
+
+
+
+
 
         <!--Col Starts-->
         <div class="col">

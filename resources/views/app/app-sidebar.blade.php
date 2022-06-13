@@ -5,8 +5,8 @@
                         <a class="header-brand1" href="{{ url('/' . $page='index') }}">
                             <img src="{{URL::asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
                             <img src="{{URL::asset('assets/images/brand/logo-1.png')}}"  class="header-brand-img toggle-logo" alt="logo">
-                            <img src="{{URL::asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo" alt="logo">
-                            <img src="{{URL::asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
+                            <img src="{{URL::asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo " alt="logo">
+                            <img src="{{URL::asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1 w-75 h-75" alt="logo">
                         </a><!-- LOGO -->
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle ml-auto" data-toggle="sidebar" href="#"></a><!-- sidebar-toggle-->
                     </div>
@@ -17,7 +17,7 @@
                             </div>
                             <div class="user-info">
                                 <h6 class=" mb-0 text-dark">SorSor Admin</h6>
-                                <span class="text-muted app-sidebar__user-name text-sm">Administrator</span>
+                                <span class="text-muted app-sidebar__user-name text-sm">{{\Illuminate\Support\Facades\Auth::user()->username}}</span>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li class="nav-item" data-toggle="tooltip" data-placement="top" title="Logout">
-                                <a class="nav-link text-center m-2">
+                                <a class="nav-link text-center m-2" href="{{route('logout')}}">
                                     <i class="fe fe-power"></i>
                                 </a>
                             </li>
@@ -56,7 +56,7 @@
                             <a class="side-menu__item"  data-toggle="slide" href="#"><i class="side-menu__icon ti-package"></i><span class="side-menu__label">User Management</span><i class="angle fa fa-angle-right"></i></a>
                             <ul class="slide-menu">
                                 <li><a class="slide-item" href="{{ url('/' . $page='user/') }}"><span>User</span></a></li>
-                                <li><a class="slide-item" href="{{ url('/' . $page='user/tracking') }}"><span>User Tracking</span></a></li>
+                                <li><a class="slide-item" href="{{ url('/' . $page='user/verify_requests') }}"><span>Verify Requests</span></a></li>
                                 <li><a class="slide-item" href="{{ url('/' . $page='user/commission') }}"><span>Commissions</span></a></li>
                             </ul>
                         </li>

@@ -9,7 +9,7 @@
     <meta name="description" content="Volgh –  Bootstrap 4 Responsive Application Admin panel Theme Ui Kit & Premium Dashboard Design Modern Flat Laravel Template">
     <meta name="author" content="Spruko Technologies Private Limited">
     <meta name="keywords" content="dashboard, admin, dashboard template, admin template, laravel, php laravel, laravel bootstrap, laravel admin template, bootstrap laravel, bootstrap in laravel, laravel dashboard template, laravel admin, laravel dashboard, laravel blade template, php admin">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('app.head')
 
 </head>
@@ -49,7 +49,7 @@
             @include('app.footer-scripts')
 
                     <!--Includes Extras-Js-->
-                    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
                     <script src="/extras/js/axios.min.js"></script>
                     <script src="/extras/js/bootstrap.min.js"></script>
                     <script src="/extras/js/bootstrap-fileinput.js"></script>
