@@ -122,11 +122,11 @@ class UserController extends Controller
     public function verify(Request $request){
 
         $data=$request->all();
-        UserVerifyRequest::where('user_id',$request->id)
+        UserVerifyRequest::where('user_id',$data['id'])
             ->update([
-                'verify_status'=>$data['stt']
+                'verify_status'=>2
             ]);
-        User::where('user_id',$request->id)
+        User::where('id',$data['id'])
             ->update([
                 'verify_status'=>$data['stt']
             ]);

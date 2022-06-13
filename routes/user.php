@@ -18,8 +18,6 @@ Route::any('/{usr}/{status}',[\App\Http\Controllers\User\UserController::class,'
 Route::any('/verify',[\App\Http\Controllers\User\UserController::class,'verify'])->name('user_verify');
 Route::any('/{usr}',[\App\Http\Controllers\User\UserController::class,'verifyControl']);
 
-Route::any('/verifydeneme',[\App\Http\Controllers\User\UserController::class,'verifydeneme'])->name('verifydeneme');
-
 
 
 

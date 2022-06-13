@@ -33,8 +33,8 @@
                     <div class="d-flex justify-content-between">
                         <div class=""> User wants to be verified user. Do you want to confirm?</div>
                         <div>
-                            <button class="btn btn-outline-primary ml-2 mb-4" onclick="ChangeStatus('{{$usr->username}}',2);">Confirm</button>
-                            <button class="btn btn-outline-danger ml-2 mb-4" onclick="ChangeStatus('{{$usr->username}}',3);">Decline</button>
+                            <button class="btn btn-outline-primary ml-2 mb-4" onclick="ChangeStatus('{{$usr->id}}',2);">Confirm</button>
+                            <button class="btn btn-outline-danger ml-2 mb-4" onclick="ChangeStatus('{{$usr->id}}',3);">Decline</button>
                         </div>
                     </div>
               </div>
@@ -57,7 +57,7 @@
             $.post("{{ route('user_verify') }}", {id: _id,stt:_stt, _token: token }, function (data) {
 
                 if(data.success){
-                    console.log('TRUE');
+                    console.log('true');
                 }
                 else{
                     console.log('FALSE');
