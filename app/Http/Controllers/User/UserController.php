@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Complaints;
+use App\Models\SysCurrency;
 use App\Models\SystemEventCategory;
 use App\Models\User;
 use App\Models\UserPayment;
@@ -25,7 +26,6 @@ class UserController extends Controller
         ]);
     }
 
-
     public function commission(){
         return view('user.commission');
     }
@@ -33,6 +33,10 @@ class UserController extends Controller
     public function verifyRequests(){
 
         return view('user.verify_requests');
+    }
+
+    public function usersVerified(){
+        return view('user.verified_user');
     }
 
 
@@ -49,7 +53,7 @@ class UserController extends Controller
 
 
         if ($status=="status"){
-            return view('user.user_control',[
+            return view('user.user_profile',[
                 'user'=>$usr,
                 'usrAmount'=>$usrAmount,
                 'usrCoin'=>$usrCoin
@@ -64,7 +68,18 @@ class UserController extends Controller
 
     }
 
-
+    public function editProfile(Request $request){
+        $data=$request->all();
+        User::where('username',$data['username'])->update([
+            'name'=>$data['name'],
+            'email'=>$data['email'],
+            'phone'=>$data['phone'],
+            'bio'=>$data['bio'],
+            'verify_status'=>$data['verify_status'],
+            'is_pro'=>$data['is_pro']
+        ]);
+        return redirect()->back();
+    }
 
     public function dataservice(Request $request){
         $inputs = $request->all();
@@ -75,7 +90,7 @@ class UserController extends Controller
 
             return $this->getDataTable(new DataTables(), $data, $inputs)
                 ->addColumn('detail', function ($query){
-                    return '<a href="/user/'.$query->id.'/status" class="">Detail</a>';
+                    return '<a href="/user/profile/'.$query->id.'/status" class="btn btn-primary">Detail</a>';
                 })
                 ->rawColumns(['detail',])
              ->make(true);
@@ -96,7 +111,7 @@ class UserController extends Controller
 
             return $this->getDataTable(new DataTables(), $data, $inputs)
                 ->addColumn('detail', function ($query){
-                    return '<a href="/user/'.$query->id.'" class="">Detail</a>';
+                    return '<a href="/user/profile/'.$query->id.'/verify_control" class="">Detail</a>';
                 })
                 ->rawColumns(['detail',])
                 ->make(true);
@@ -105,9 +120,59 @@ class UserController extends Controller
         return  ResultControl::Success('', $data->get());
     }
 
+    public function verifiedDataservice(Request $request){
+        $inputs = $request->all();
+
+        $data = User::join('user_verify_requests','user_verify_requests.user_id','=','users.id')
+            ->orderBy('count_followers','desc')
+            ->where('user_verify_requests.verify_status',2);
+
+        if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+            return $this->getDataTable(new DataTables(), $data, $inputs)
+                ->addColumn('detail', function ($query){
+                    return '<a href="/user/profile/'.$query->id.'/status" class="">Detail</a>';
+                })
+                ->rawColumns(['detail',])
+                ->make(true);
+        }
+        return  ResultControl::Success('', $data->get());
+    }
+
+
+    public function shareDataservice(Request $request){
+        $inputs = $request->all();
+
+        $data = User::join('user_shares','user_shares.user_id','=','users.id')
+            ->orderBy('user_shares.id','desc');
+
+        if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+            return $this->getDataTable(new DataTables(), $data, $inputs)
+                ->addColumn('share_content_type', function ($query){
+                   switch ($query->share_content_type){
+                       default:
+                       case 1:
+                           return "Text";
+                       case 2:
+                           return "Photo";
+                       case 3:
+                           return "Video";
+
+                   }
+                })
+                ->addColumn('detail', function ($query){
+                    return '<a href="/user/profile/'.$query->id.'/status" class="btn btn-outline-primary">Detail</a>';
+                })
+                ->rawColumns(['detail','share_content_type'])
+                ->make(true);
+        }
+        return  ResultControl::Success('', $data->get());
+    }
+
+
 
     //Verify Control
-
     public function verifyControl($usr){
 
             $user=User::where('id',$usr)->first();
@@ -119,16 +184,18 @@ class UserController extends Controller
             ]);
     }
 
+    // JS-POST being verified controller
     public function verify(Request $request){
 
         $data=$request->all();
+
         UserVerifyRequest::where('user_id',$data['id'])
             ->update([
-                'verify_status'=>2
+                'verify_status'=>intval($data['stt'])
             ]);
         User::where('id',$data['id'])
             ->update([
-                'verify_status'=>$data['stt']
+                'verify_status'=>intval($data['stt'])
             ]);
 
         return [

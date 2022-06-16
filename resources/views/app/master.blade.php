@@ -34,7 +34,7 @@
                     <div class="side-app">
 
                         <div class="page-header">
-                        @yield('page-header')
+             @include('app.header')
                         @include('app.notification')
                         </div>
 

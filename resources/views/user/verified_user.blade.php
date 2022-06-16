@@ -5,8 +5,9 @@
     <link href="{{ URL::asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet">
 @endsection
 
+
 @section('header-title')
-    Users
+    Verified Users
 @endsection
 
 
@@ -17,21 +18,21 @@
     <div class="row">
 
         <div class="card px-0">
-        <div class="form-group px-6">
-            <label class="form-label">Searching Bar</label>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for a name or nick name">
-                <span class="input-group-append">
+            <div class="form-group px-6">
+                <label class="form-label">Searching Bar</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for a name or nick name">
+                    <span class="input-group-append">
 				<button class="btn btn-primary mx-3" type="button"> Search </button>
 				</span>
+                </div>
             </div>
-        </div>
         </div>
 
         <div class="col-12 col-sm-12">
             <div class="card ">
                 <div class="card-header">
-                    <h3 class="card-title mb-0">Users List</h3>
+                    <h3 class="card-title mb-0">Verified Users List</h3>
                 </div>
                 <div class="card-body">
                     <div class="grid-margin">
@@ -66,20 +67,16 @@
     </div><!-- ROW-5 END -->
 
 
-
-
-
 @endsection
 
 @section('js')
 
     <script src="{{ URL::asset('assets/js/index1.js') }}"></script>
 
-
     <script type="text/javascript">
         var myDataTable=null;
         var filterData = '';
-        var pageDataPath = '{{route('user_dataservice')}}?data_type=1';
+        var pageDataPath = '{{route('user_verified_dataservice')}}?data_type=1';
 
         $(document).ready(function (){
             myDataTable = getTable($("#grdDataTable"), pageDataPath + filterData, [

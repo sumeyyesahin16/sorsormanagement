@@ -13,7 +13,7 @@
                     <div class="app-sidebar__user">
                         <div class="dropdown user-pro-body text-center">
                             <div class="user-pic">
-                                <img src="{{URL::asset('assets/images/users/10.jpg')}}" alt="user-img" class="avatar-xl rounded-circle">
+                                <img src="https://sorsor.doersteam.net/{{\Illuminate\Support\Facades\Auth::user()->photo_path}}" alt="user-img" class="avatar-xl rounded-circle">
                             </div>
                             <div class="user-info">
                                 <h6 class=" mb-0 text-dark">SorSor Admin</h6>
@@ -57,6 +57,7 @@
                             <ul class="slide-menu">
                                 <li><a class="slide-item" href="{{ url('/' . $page='user/') }}"><span>User</span></a></li>
                                 <li><a class="slide-item" href="{{ url('/' . $page='user/verify_requests') }}"><span>Verify Requests</span></a></li>
+                                <li><a class="slide-item" href="{{ url('/' . $page='user/verified_users') }}"><span>Verified Users</span></a></li>
                                 <li><a class="slide-item" href="{{ url('/' . $page='user/commission') }}"><span>Commissions</span></a></li>
                             </ul>
                         </li>

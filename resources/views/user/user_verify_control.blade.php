@@ -3,10 +3,12 @@
     <link href="{{ URL::asset('assets/plugins/gallery/gallery.css')}}" rel="stylesheet">
 @endsection
 
+@section('header-title')
+    User Verify Control
+@endsection
+
 @section('content')
-    <form>
-        @csrf
-    </form>
+
 
     <div class="card">
         <div class="card-header">
@@ -58,6 +60,7 @@
 
                 if(data.success){
                     console.log('true');
+                    location.href="/user/verified_users";
                 }
                 else{
                     console.log('FALSE');

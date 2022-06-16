@@ -4,23 +4,13 @@
 @endsection
 
 
-@section('page-header')
-
-    <!-- PAGE-HEADER -->
-    <div>
-        <h1 class="page-title">User Commission</h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Dashboard 01</li>
-        </ol>
-    </div>
-    <!-- PAGE-HEADER END -->
+@section('header-title')
+    Comissions
 @endsection
 
 
 @section('content')
     <h1>Commission</h1>
-
 @endsection
 
 @section('js')

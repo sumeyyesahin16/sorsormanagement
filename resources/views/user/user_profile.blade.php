@@ -3,19 +3,8 @@
 @section('css')
 @endsection
 
-
-
-@section('page-header')
-
-    <!-- PAGE-HEADER -->
-    <div>
-        <h1 class="page-title">Users</h1>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('user')}}">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Users</li>
-        </ol>
-    </div>
-    <!-- PAGE-HEADER END -->
+@section('header-title')
+    User Profile
 @endsection
 
 @section('content')
@@ -26,72 +15,72 @@
                 <div class="card-body">
                     <div class="wideget-user">
                         <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                                <div class="wideget-user-desc d-sm-flex">
-                                    <div class="wideget-user-img">
-                                        <img class="" src="{{URL::asset('assets/images/users/10.jpg')}}" alt="img">
+                            <div class="col-lg-3 col-md-12 px-5">
+                                <div class="wideget-user-desc ">
+                                    <div class="wideget-user-img d-flex justify-content-center">
+                                        @if($user->photo_path==NULL)
+                                            <img class="" src="{{URL::asset('assets/images/users/10.jpg')}}" alt="img">
+                                        @else
+                                            <img class="w-75" src="https://sorsor.doersteam.net/{{$user->photo_path}}" alt="img">
+                                        @endif
                                     </div>
-                                    <div class="user-wrap">
+                                    <div class="user-wrap ml-5">
                                         <h4>{{$user->username}}</h4>
                                         <h6 class="text-muted mb-3">Member Since: {{$user->created_at->format('F,Y')}}</h6>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-12">
+                            <div class="col-lg-9 col-md-12">
                                 <div class="row">
                                     <div class="col d-flex justify-content-end">
-                                        <a href="/user/{{$user->id}}/edit" class="btn btn-primary">Edit User</a>
+                                        <a href="/user/profile/{{$user->id}}/edit" class="btn btn-primary">Edit User</a>
                                     </div>
                                 </div>
-
-                                <div class="wideget-user-info">
-                                    <div class="wideget-user-warap">
-                                        <div class="wideget-user-warap-l">
-                                            <h4 class="text-danger">{{$user->count_following}}</h4>
-                                            <p>Following</p>
-                                        </div>
-                                        <div class="wideget-user-warap-r">
-                                            <h4 class="text-danger">{{$user->count_followers}}</h4>
-                                            <p>Followers</p>
-                                        </div>
+                                <div class="row mb-5">
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Following</div>
+                                        <div class="d-flex justify-content-center h4">{{$user->count_following}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Followers</div>
+                                        <div class="d-flex justify-content-center h4">{{$user->count_followers}}</div>
                                     </div>
                                 </div>
-
-                                <div class="wideget-user-info">
-                                    <div class="wideget-user-warap">
-                                        <div class="wideget-user-warap-l">
-                                            <h4 class="text-danger">
-                                                @if($user->is_pro==1)
-                                                    Yes
-                                                @else
-                                                    No
-                                                @endif
-                                            </h4>
-                                            <p>is Pro?</p>
-                                        </div>
-
-                                        <div class="wideget-user-warap-r">
-                                            <h4 class="text-danger">
-                                                @if($user->verify_status==2)
-                                                    Yes
-                                                @elseif($user->verify_status==1)
-                                                    Pending...
-                                                @elseif($user->verify_status==3)
-                                                   Rejected
-                                                @else
-                                                    No
-                                                @endif
-
-                                            </h4>
-                                            <p>is Verified?</p>
-                                        </div>
+                                <div class="row mb-5">
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Pro?</div>
+                                        <div class="d-flex justify-content-center h4">@if($user->is_pro)
+                                                <b>Yes</b> /&nbsp;{{$user->pro_date}}
+                                            @else
+                                          No
+                                            @endif</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Verified?</div>
+                                        <div class="d-flex justify-content-center h4">@if($user->verify_status==2)
+                                                Yes
+                                            @elseif($user->verify_status==3)
+                                                No&nbsp; <u>(Rejected)</u>
+                                            @else
+                                                No
+                                            @endif</div>
                                     </div>
                                 </div>
-
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Amount</div>
+                                        <div class="d-flex justify-content-center h4">{{$usrAmount}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="text-primary h3 d-flex justify-content-center">Coin</div>
+                                        <div class="d-flex justify-content-center h4">{{$usrCoin}}</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="border-top">
                     <div class="wideget-user-tab">
                         <div class="tab-menu-heading">
@@ -104,6 +93,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="card">
                 <div class="card-body">
                     <div class="border-0">
@@ -119,6 +110,22 @@
                                             <tr>
                                                 <td><strong>Full Name :</strong> {{$user->name}}</td>
                                             </tr>
+                                            <tr>
+                                                <td><strong>User Name :</strong> {{$user->username}}</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><strong>Gender :</strong>
+                                                  @if($user->gender==1)
+                                                        Undefined
+                                                    @elseif($user->gender==2)
+                                                        Female
+                                                    @else
+                                                        Male
+                                                    @endif
+                                                </td>
+                                            </tr>
+
 
                                             </tbody>
                                             <tbody class="col-lg-12 col-xl-6 p-0">
