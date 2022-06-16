@@ -30,8 +30,8 @@ class EventsController extends Controller
 
     public function eventDataService(Request $request){
         $inputs = $request->all();
-
         $data = Event::orderBy('id','asc');
+
 
         if ($request->has('data_type') && $request->input('data_type') == 1) {
 

@@ -20,7 +20,6 @@ class UserShareLike extends Model
 
     public $table = 'user_shares_likes';
 
-
     protected $fillable = [
         'id',
         'share_id',

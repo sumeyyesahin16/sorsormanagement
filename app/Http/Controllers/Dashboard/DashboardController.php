@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\DB;
 
 class DashboardController
 {
-
     public function index(){
 
         $userData=User::get();
@@ -32,13 +31,13 @@ class DashboardController
 
         $que2    = <<<QUERY
         SELECT
-        SUM(price) AS price
+        SUM(IFNULL(price,0)) AS price
         FROM user_purchased_contents
         QUERY;
 
         $que3   = <<<QUERY
         SELECT
-        SUM(amount) AS amount
+        SUM(IFNULL(amount,0)) AS amount
         FROM user_payments
         QUERY;
 
@@ -54,7 +53,6 @@ class DashboardController
         $purchasedContent = collect(DB::select(DB::raw($que2)));
         $userPayment = collect(DB::select(DB::raw($que3)));
 
-
         return view('app.index',[
             "userCount"=>$userCount,
             "userShares"=>$userShares,
@@ -65,6 +63,7 @@ class DashboardController
             "userShareVideo"=>$userShareVideo,
             "userVerifiedCount"=>$userVerifiedCount,
             "userProCount"=>$userProCount
+
         ]);
     }
 

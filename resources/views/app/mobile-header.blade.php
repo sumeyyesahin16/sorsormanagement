@@ -115,7 +115,8 @@
                                     <div class="dropdown-divider"></div>
                                     <a href="#" class="dropdown-item text-center">View all Notification</a>
                                 </div>
-                            </div><!-- NOTIFICATIONS -->
+                            </div>
+                            <!-- NOTIFICATIONS -->
                             <div class="dropdown d-md-flex message">
                                 <a class="nav-link icon text-center" data-toggle="dropdown">
                                     <i class="fe fe-mail"></i>

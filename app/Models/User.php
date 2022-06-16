@@ -19,7 +19,6 @@ class User extends Authenticatable
     FROM `INFORMATION_SCHEMA`.`COLUMNS`
     WHERE `TABLE_SCHEMA`='SorSor'
     AND `TABLE_NAME`='users';
-
      */
 
     use HasFactory, Notifiable, SoftDeletes;
@@ -102,10 +101,12 @@ class User extends Authenticatable
             ->where('users.id', $id)
             ->first());
 
+
         if(!$profile)
             return ResultControl::Error('Yetkisiz istek!');
 
         $shares = Shares::SharesList($profile['username']);
+
         if($shares){
             $profile['medias']          = $shares['medias'];
             $profile['posts']           = $shares['posts'];
@@ -123,7 +124,6 @@ class User extends Authenticatable
         $profile['share_comments']      = UserShareComment::where('user_id', $id)->selectRaw("share_id AS id")->get();
         $profile['share_sent']          = UserShareSent::where('user_id', $id)->selectRaw('share_id AS id')->get();
         $profile['comment_likes']       = UserShareCommentLike::where('user_id', $id)->selectRaw("comment_id AS id, IFNULL(is_like,0) AS is_like")->get();
-
 
         return $profile;
     }

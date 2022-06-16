@@ -11,7 +11,6 @@ SELECT concat('''',`COLUMN_NAME`,'''',',')
 FROM `INFORMATION_SCHEMA`.`COLUMNS`
 WHERE `TABLE_SCHEMA`='SorSor'
 AND `TABLE_NAME`='system_event_categories';
-
  */
 
 class SystemEventCategory extends Model

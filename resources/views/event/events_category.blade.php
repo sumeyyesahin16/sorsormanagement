@@ -40,7 +40,6 @@
 
         </div>
     </div>
-
     </form>
 
 
@@ -74,9 +73,6 @@
         </div><!-- COL END -->
     </div><!-- ROW-5 END -->
 
-
-
-
 @endsection
 
 @section('js')
@@ -108,9 +104,6 @@
             ],[], null);
         });
     </script>
-
-
-
 @endsection
 
 

@@ -20,7 +20,6 @@ class UserShare extends Model
 
     public $table = 'user_shares';
 
-
     protected $fillable = [
         'id',
         'user_id',

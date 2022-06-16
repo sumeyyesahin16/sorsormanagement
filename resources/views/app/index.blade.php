@@ -9,7 +9,7 @@ Dashboard
 
 @section('content')
 
-						<!-- ROW-1 -->
+	<!-- ROW-1 -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
 								<!-- Col Header -->
@@ -71,6 +71,8 @@ Dashboard
 											</div>
 										</div>
 									</div><!--Col Ends-->
+
+
 									<!--Col Start -->
 									<div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
 										<div class="card">
@@ -88,9 +90,6 @@ Dashboard
 											</div>
 										</div>
 									</div><!--Col Ends-->
-
-
-
 								</div>
 							</div>
 						</div>
@@ -174,7 +173,6 @@ Dashboard
 											</div>
 										</div>
 									</div><!-- Col Header Ends -->
-
 									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
 										<div class="card">
 											<div class="card-body text-center">
@@ -196,8 +194,6 @@ Dashboard
 											</div>
 										</div>
 									</div><!-- COL END -->
-
-
 								</div>
 							</div>
 						</div>
@@ -229,6 +225,7 @@ Dashboard
 											</div>
 										</div>
 									</div><!-- COL END -->
+
 									<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
 										<div class="card">
 											<div class="card-body text-center">
@@ -242,12 +239,9 @@ Dashboard
 											</div>
 										</div>
 									</div><!-- COL END -->
-
 								</div>
 							</div>
 						</div><!-- ROW-4 END -->
-
-
 @endsection
 
 @section('js')

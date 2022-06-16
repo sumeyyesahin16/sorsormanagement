@@ -56,6 +56,8 @@
 @endsection
 
 @section('js')
+
+
     <script src="{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/chart/utils.js') }}"></script>
     <script src="{{ URL::asset('assets/plugins/echarts/echarts.js') }}"></script>
