@@ -161,6 +161,7 @@ class UserController extends Controller
                 ->addColumn('share_content_type', function ($query){
                    switch ($query->share_content_type){
                        default:
+                           return "Undefined";
                        case 1:
                            return "Text";
                        case 2:
@@ -170,6 +171,7 @@ class UserController extends Controller
 
                    }
                 })
+
                 ->addColumn('detail', function ($query){
                     return '<a href="/user/profile/'.$query->id.'/post_detail" class="btn btn-outline-primary">Detail</a>';
                 })
