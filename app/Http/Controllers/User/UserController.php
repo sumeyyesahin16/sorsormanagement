@@ -90,6 +90,7 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+
     public function dataservice(Request $request){
         $inputs = $request->all();
 

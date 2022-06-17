@@ -11,6 +11,7 @@
 
 @section('content')
     <h1>Commission</h1>
+    commission
 
 @endsection
 
