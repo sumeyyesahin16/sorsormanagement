@@ -144,7 +144,7 @@
 
             </div>
         </div>
-    </div>
+
     <!-- ROW-1 CLOSED -->
 
     <!-- ROW-2 OPEN -->
@@ -181,15 +181,15 @@
     </div>
     <!-- ROW-2 CLOSED -->
 
-    </div>
-    </div>
+
     <!--CONTAINER CLOSED -->
-    </div>
+
 @endsection
 
 
 
 @section('js')
+
 
     <script type="text/javascript">
         var myDataTable=null;

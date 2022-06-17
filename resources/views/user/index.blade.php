@@ -75,7 +75,6 @@
 
     <script src="{{ URL::asset('assets/js/index1.js') }}"></script>
 
-
     <script type="text/javascript">
         var myDataTable=null;
         var filterData = '';

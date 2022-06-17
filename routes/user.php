@@ -17,6 +17,7 @@ Route::any('/verified_users',[\App\Http\Controllers\User\UserController::class,'
 Route::group(['prefix' => 'profile'],function(){
     Route::any('ApplyChanges',[\App\Http\Controllers\User\UserController::class,'editProfile'])->name('ApplyChanges');
     Route::any('/{usr}/verify_control',[\App\Http\Controllers\User\UserController::class,'verifyControl']);
+    Route::any('/{usr}/post_detail',[\App\Http\Controllers\User\UserController::class,'user_post_detail']);
     Route::any('/{usr}/{status}',[\App\Http\Controllers\User\UserController::class,'userProfile']);
 });
 

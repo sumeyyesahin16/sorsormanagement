@@ -8,6 +8,7 @@ use App\Models\SysCurrency;
 use App\Models\SystemEventCategory;
 use App\Models\User;
 use App\Models\UserPayment;
+use App\Models\UserShare;
 use App\Models\UserVerifyRequest;
 use App\Utility\ResultControl;
 use Illuminate\Http\Request;
@@ -37,6 +38,14 @@ class UserController extends Controller
 
     public function usersVerified(){
         return view('user.verified_user');
+    }
+
+    public function user_post_detail($post_id){
+       $user_post_detail= UserShare::where('id',$post_id)->first();
+        return view('user.post_detail',[
+            'post_id'=>$post_id,
+            'user_post_detail'=>$user_post_detail
+        ]);
     }
 
 
@@ -162,7 +171,7 @@ class UserController extends Controller
                    }
                 })
                 ->addColumn('detail', function ($query){
-                    return '<a href="/user/profile/'.$query->id.'/status" class="btn btn-outline-primary">Detail</a>';
+                    return '<a href="/user/profile/'.$query->id.'/post_detail" class="btn btn-outline-primary">Detail</a>';
                 })
                 ->rawColumns(['detail','share_content_type'])
                 ->make(true);

@@ -49,7 +49,8 @@
                                 <div class="row mb-5">
                                     <div class="col">
                                         <div class="text-primary h3 d-flex justify-content-center">Pro?</div>
-                                        <div class="d-flex justify-content-center h4">@if($user->is_pro)
+                                        <div class="d-flex justify-content-center h4">
+                                            @if($user->is_pro)
                                                 <b>Yes</b> /&nbsp;{{$user->pro_date}}
                                             @else
                                           No
@@ -57,7 +58,8 @@
                                     </div>
                                     <div class="col">
                                         <div class="text-primary h3 d-flex justify-content-center">Verified?</div>
-                                        <div class="d-flex justify-content-center h4">@if($user->verify_status==2)
+                                        <div class="d-flex justify-content-center h4">
+                                            @if($user->verify_status==2)
                                                 Yes
                                             @elseif($user->verify_status==3)
                                                 No&nbsp; <u>(Rejected)</u>

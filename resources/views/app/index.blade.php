@@ -95,8 +95,6 @@ Dashboard
 						</div>
 						<!-- ROW-1 END -->
 
-
-
 						<!-- ROW-2 -->
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">

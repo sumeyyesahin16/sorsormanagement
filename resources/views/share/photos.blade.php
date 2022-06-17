@@ -10,9 +10,97 @@
 
 
 @section('content')
-    <h1>photosss</h1>
+
+
+    <!-- ROW-1 -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+            <!-- Col Header -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h3 class="text-primary">Total Statistics</h3>
+                        </div>
+                    </div>
+                </div><!-- Col Header Ends -->
+
+                <!--Col Start -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                    <div class="card">
+                        <div class="card-body text-center statistics-info">
+                            <div class="counter-icon bg-primary mb-0 box-primary-shadow">
+                                <i class="fe fe-trending-up text-white"></i>
+                            </div>
+                            <h6 class="mt-4 mb-1">Users' Count</h6>
+                            <h2 class="mb-2 number-font">{{$userCount}}</h2>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div><!--Col Ends-->
+
+                <!--Col Start -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                    <div class="card">
+                        <div class="card-body text-center statistics-info">
+                            <div class="counter-icon bg-primary mb-0 box-primary-shadow">
+                                <i class="fe fe-trending-up text-white"></i>
+                            </div>
+                            <h6 class="mt-4 mb-1">Total Shares</h6>
+                            <h2 class="mb-2 number-font">
+                                @foreach($userShares as $us)
+                                    {{$us->count_shares}}
+                                @endforeach
+                            </h2>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div><!--Col Ends-->
+
+                <!--Col Start -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                    <div class="card">
+                        <div class="card-body text-center statistics-info">
+                            <div class="counter-icon bg-primary mb-0 box-primary-shadow">
+                                <i class="fe fe-trending-up text-white"></i>
+                            </div>
+                            <h6 class="mt-4 mb-1">Total Likes</h6>
+                            <h2 class="mb-2 number-font">
+                                @foreach($userShares as $us)
+                                    {{$us->count_likes}}
+                                @endforeach
+                            </h2>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div><!--Col Ends-->
+
+
+                <!--Col Start -->
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                    <div class="card">
+                        <div class="card-body text-center statistics-info">
+                            <div class="counter-icon bg-primary mb-0 box-primary-shadow">
+                                <i class="fe fe-trending-up text-white"></i>
+                            </div>
+                            <h6 class="mt-4 mb-1">Total Comments</h6>
+                            <h2 class="mb-2 number-font">
+                                @foreach($userShares as $us)
+                                    {{$us->count_comments}}
+                                @endforeach
+                            </h2>
+                            <p class="text-muted"></p>
+                        </div>
+                    </div>
+                </div><!--Col Ends-->
+            </div>
+        </div>
+    </div>
+    <!-- ROW-1 END -->
 
 @endsection
+
+
 
 @section('js')
     <script src="{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}"></script>
