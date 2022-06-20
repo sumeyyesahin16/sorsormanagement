@@ -63,8 +63,8 @@ class DashboardController
             "userShareVideo"=>$userShareVideo,
             "userVerifiedCount"=>$userVerifiedCount,
             "userProCount"=>$userProCount
-
         ]);
+
     }
 
 }
