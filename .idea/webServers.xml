@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ef3245a5-691a-44eb-90b2-b8f0816e210e" name="sorsormanagement" url="http://management.sorsor.co">
+        <fileTransfer rootFolder="/var/www/doersteam" accessType="SFTP" host="codax.pro" port="22" sshConfigId="4c93fbf1-03cc-4606-9e9f-482d6ee0c80f" sshConfig="root@codax.pro:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
