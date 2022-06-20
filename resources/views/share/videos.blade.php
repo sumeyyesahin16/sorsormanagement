@@ -1,14 +1,14 @@
 @extends('app.master')
 
 @section('css')
+    <link href="{{ URL::asset('assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('assets/plugins/select2/select2.min.css')}}" rel="stylesheet">
 @endsection
 
 
 @section('header-title')
     Videos
 @endsection
-
-
 
 @section('content')
 
@@ -101,17 +101,10 @@
                                         <table id="grdDataTable" class="table card-table table-vcenter align-items-center">
                                             <thead class="">
                                             <tr>
-                                                <th>Queue number</th>
-                                                <th>User name</th>
-                                                <th>Name</th>
-                                                <th>E-mail</th>
-                                                <th>Phone</th>
-                                                <th>Following Count</th>
-                                                <th>Followers Count</th>
                                                 <th>Like Count</th>
-                                                <th>Fan Count</th>
+                                                <th>Comment Count</th>
+                                                <th>User</th>
                                                 <th>Detail</th>
-
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -131,16 +124,38 @@
         @endsection
 
 
-
         @section('js')
+
             <script src="{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}"></script>
             <script src="{{ URL::asset('assets/plugins/chart/utils.js') }}"></script>
             <script src="{{ URL::asset('assets/plugins/echarts/echarts.js') }}"></script>
             <script src="{{ URL::asset('assets/plugins/apexcharts/apexcharts.js') }}"></script>
             <script src="{{ URL::asset('assets/plugins/peitychart/jquery.peity.min.js') }}"></script>
             <script src="{{ URL::asset('assets/plugins/peitychart/peitychart.init.js') }}"></script>
+            <script src="{{ URL::asset('assets/js/index1.js') }}"></script>
+            <script src="{{ URL::asset('assets/plugins/datatable/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ URL::asset('assets/plugins/datatable/dataTables.bootstrap4.min.js') }}"></script>
+            <script src="{{ URL::asset('assets/plugins/datatable/datatable.js') }}"></script>
+            <script src="{{ URL::asset('assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
 
-        @endsection
+
+            <script type="text/javascript">
+                var myDataTable=null;
+                var filterData = '';
+                var pageDataPath = '{{route('videos_dataservice')}}?data_type=1';
+
+                $(document).ready(function (){
+                    myDataTable = getTable($("#grdDataTable"), pageDataPath + filterData, [
+                        {data: 'count_likes'},
+                        {data: 'count_comments'},
+                        {data: 'user_id'},
+                        {data: 'detail'}
+
+                    ],[], null);
+                });
+            </script>
+
+@endsection
 
 
 

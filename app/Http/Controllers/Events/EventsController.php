@@ -29,6 +29,7 @@ class EventsController extends Controller
     }
 
     public function eventDataService(Request $request){
+
         $inputs = $request->all();
         $data = Event::orderBy('id','asc');
 
@@ -49,6 +50,7 @@ class EventsController extends Controller
     }
 
     public function dataservice(Request $request){
+
         $inputs = $request->all();
 
         $data = SystemEventCategory::orderBy('id','asc');
@@ -63,5 +65,6 @@ class EventsController extends Controller
                 ->make(true);
         }
         return  ResultControl::Success('', $data->get());
+
     }
 }

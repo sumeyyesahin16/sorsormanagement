@@ -24,27 +24,15 @@ use Illuminate\Testing\Fluent\Concerns\Has;
 
 class ShareController extends Controller
 {
-    public function photos()
-    {
-        return view('share.photos');
-    }
+
 
     public function feed()
     {
         return view('share.feed');
     }
 
-    public function videos()
-    {
-        return view('share.videos');
-    }
 
     public function posts()
-    {
-        return view('share.posts');
-    }
-
-    public function posts_count()
     {
 
         $post_share = UserShare::where('share_content_type', 1)->get();
@@ -61,7 +49,7 @@ class ShareController extends Controller
 
     }
 
-    public function photos_count()
+    public function photos()
     {
 
         $photo_share = UserShare::where('share_content_type', 2)->get();
@@ -78,7 +66,7 @@ class ShareController extends Controller
 
     }
 
-    public function videos_count()
+    public function videos()
     {
 
         $video_share = UserShare::where('share_content_type', 3)->get();
@@ -93,7 +81,65 @@ class ShareController extends Controller
             "video_share_count" => $video_share_count
         ]);
 
+    }
 
+
+    public function posts_dataservice(Request $request){
+        $inputs = $request->all();
+
+        $data = UserShare::where('share_content_type', 1)->orderBy('count_likes','asc');
+
+        if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+            return $this->getDataTable(new DataTables(), $data, $inputs)
+                ->addColumn('detail', function ($query){
+                    return '<a href="/share/posts/'.$query->id.'/status" class="">Detay</a>';
+                })
+                ->rawColumns(['detail',])
+                ->make(true);
+        }
+
+        return  ResultControl::Success('', $data->get());
+    }
+
+
+
+    public function photos_dataservice(Request $request){
+        $inputs = $request->all();
+
+        $data = UserShare::where('share_content_type', 2)->orderBy('count_likes','asc');
+
+        if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+            return $this->getDataTable(new DataTables(), $data, $inputs)
+                ->addColumn('detail', function ($query){
+                    return '<a href="/share/photos/'.$query->id.'/status" class="">Detay</a>';
+                })
+                ->rawColumns(['detail',])
+                ->make(true);
+        }
+
+        return  ResultControl::Success('', $data->get());
+    }
+
+
+    public function videos_dataservice(Request $request){
+
+        $inputs = $request->all();
+
+        $data = UserShare::where('share_content_type', 3)->orderBy('count_likes','asc');
+
+            if ($request->has('data_type') && $request->input('data_type') == 1) {
+
+                return $this->getDataTable(new DataTables(), $data, $inputs)
+                    ->addColumn('detail', function ($query){
+                        return '<a href="/share/videos/'.$query->id.'/status" class="">Detay</a>';
+                    })
+                    ->rawColumns(['detail',])
+                    ->make(true);
+            }
+
+        return  ResultControl::Success('', $data->get());
     }
 
 }
