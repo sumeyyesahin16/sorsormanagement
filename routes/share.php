@@ -11,7 +11,7 @@ Route::any('posts',[\App\Http\Controllers\Share\ShareController::class,'posts'])
 Route::any('posts',[\App\Http\Controllers\Share\ShareController::class,'posts_count']);
 
 
-
-
+//User Share DataService
+Route::get('/dataservice',[\App\Http\Controllers\Share\ShareController::class, 'dataservice'])->name('photos_dataservice');
 
 

@@ -48,8 +48,6 @@ class UserController extends Controller
         ]);
     }
 
-
-
     public function userProfile($usr,$status){
         // Status true = Editable
         // Status false = Status

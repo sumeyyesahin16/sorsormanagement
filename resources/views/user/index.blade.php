@@ -9,9 +9,7 @@
     Users
 @endsection
 
-
 @section('content')
-
 
     <!-- ROW-5 -->
     <div class="row">
@@ -64,10 +62,6 @@
             </div>
         </div><!-- COL END -->
     </div><!-- ROW-5 END -->
-
-
-
-
 
 @endsection
 

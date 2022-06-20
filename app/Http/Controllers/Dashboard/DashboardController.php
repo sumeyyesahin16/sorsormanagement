@@ -64,6 +64,7 @@ class DashboardController
             "userVerifiedCount"=>$userVerifiedCount,
             "userProCount"=>$userProCount
         ]);
+
     }
 
 }
