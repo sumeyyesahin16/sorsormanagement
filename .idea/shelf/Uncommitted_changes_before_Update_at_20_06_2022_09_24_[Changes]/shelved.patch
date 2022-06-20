@@ -1,0 +1,275 @@
+Index: resources/views/user/user_profile.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('app.master')\n\n@section('css')\n@endsection\n\n@section('header-title')\n    User Profile\n@endsection\n\n@section('content')\n    <!-- ROW-1 OPEN -->\n    <div class=\"row\" id=\"user-profile\">\n        <div class=\"col-lg-12\">\n            <div class=\"card\">\n                <div class=\"card-body\">\n                    <div class=\"wideget-user\">\n                        <div class=\"row\">\n                            <div class=\"col-lg-3 col-md-12 px-5\">\n                                <div class=\"wideget-user-desc \">\n                                    <div class=\"wideget-user-img d-flex justify-content-center\">\n                                        @if($user->photo_path==NULL)\n                                            <img class=\"\" src=\"{{URL::asset('assets/images/users/10.jpg')}}\" alt=\"img\">\n                                        @else\n                                            <img class=\"w-75\" src=\"https://sorsor.doersteam.net/{{$user->photo_path}}\" alt=\"img\">\n                                        @endif\n                                    </div>\n                                    <div class=\"user-wrap ml-5\">\n                                        <h4>{{$user->username}}</h4>\n                                        <h6 class=\"text-muted mb-3\">Member Since: {{$user->created_at->format('F,Y')}}</h6>\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"col-lg-9 col-md-12\">\n                                <div class=\"row\">\n                                    <div class=\"col d-flex justify-content-end\">\n                                        <a href=\"/user/profile/{{$user->id}}/edit\" class=\"btn btn-primary\">Edit User</a>\n                                    </div>\n                                </div>\n                                <div class=\"row mb-5\">\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Following</div>\n                                        <div class=\"d-flex justify-content-center h4\">{{$user->count_following}}</div>\n                                    </div>\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Followers</div>\n                                        <div class=\"d-flex justify-content-center h4\">{{$user->count_followers}}</div>\n                                    </div>\n                                </div>\n                                <div class=\"row mb-5\">\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Pro?</div>\n                                        <div class=\"d-flex justify-content-center h4\">\n                                            @if($user->is_pro)\n                                                <b>Yes</b> /&nbsp;{{$user->pro_date}}\n                                            @else\n                                          No\n                                            @endif</div>\n                                    </div>\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Verified?</div>\n                                        <div class=\"d-flex justify-content-center h4\">\n                                            @if($user->verify_status==2)\n                                                Yes\n                                            @elseif($user->verify_status==3)\n                                                No&nbsp; <u>(Rejected)</u>\n                                            @else\n                                                No\n                                            @endif</div>\n                                    </div>\n                                </div>\n                                <div class=\"row\">\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Amount</div>\n                                        <div class=\"d-flex justify-content-center h4\">{{$usrAmount}}</div>\n                                    </div>\n                                    <div class=\"col\">\n                                        <div class=\"text-primary h3 d-flex justify-content-center\">Coin</div>\n                                        <div class=\"d-flex justify-content-center h4\">{{$usrCoin}}</div>\n                                    </div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                <div class=\"border-top\">\n                    <div class=\"wideget-user-tab\">\n                        <div class=\"tab-menu-heading\">\n                            <div class=\"tabs-menu1\">\n                                <ul class=\"nav\">\n                                    <li class=\"\"><a href=\"#tab-51\" class=\"active show\" data-toggle=\"tab\">Profile</a></li>\n                                </ul>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n\n            <div class=\"card\">\n                <div class=\"card-body\">\n                    <div class=\"border-0\">\n                        <div class=\"tab-content\">\n                            <div class=\"tab-pane active show\" id=\"tab-51\">\n                                <div id=\"profile-log-switch\">\n                                    <div class=\"media-heading\">\n                                        <h5><strong>Personal Information</strong></h5>\n                                    </div>\n                                    <div class=\"table-responsive \">\n                                        <table class=\"table row table-borderless\">\n                                            <tbody class=\"col-lg-12 col-xl-6 p-0\">\n                                            <tr>\n                                                <td><strong>Full Name :</strong> {{$user->name}}</td>\n                                            </tr>\n                                            <tr>\n                                                <td><strong>User Name :</strong> {{$user->username}}</td>\n                                            </tr>\n\n                                            <tr>\n                                                <td><strong>Gender :</strong>\n                                                  @if($user->gender==1)\n                                                        Undefined\n                                                    @elseif($user->gender==2)\n                                                        Female\n                                                    @else\n                                                        Male\n                                                    @endif\n                                                </td>\n                                            </tr>\n\n\n                                            </tbody>\n                                            <tbody class=\"col-lg-12 col-xl-6 p-0\">\n                                            <tr>\n                                                <td><strong>Email :</strong> {{$user->email}}</td>\n                                            </tr>\n                                            <tr>\n                                                <td><strong>Phone :</strong> {{$user->phone}} </td>\n                                            </tr>\n                                            </tbody>\n                                        </table>\n                                    </div>\n                                    <div class=\"row profie-img\">\n                                        <div class=\"col-md-12\">\n                                            <div class=\"media-heading\">\n                                                <h5><strong>Biography</strong></h5>\n                                            </div>\n                                            <p>{{$user->bio}}</p>\n                                        </div>\n                                    </div>\n                                </div>\n                            </div>\n\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div><!-- COL-END -->\n\n\n\n\n\n\n\n\n        <!--Col Starts-->\n        <div class=\"col\">\n        <div class=\"card\">\n            <div class=\"card-body\">\n                <div class=\"border-0\">\n                    <div class=\"tab-content\">\n                        <div class=\"tab-pane active show\" id=\"tab-51\">\n                            <div id=\"profile-log-switch\">\n                                <div class=\"media-heading\">\n                                    <h5><strong>Payment Information</strong></h5>\n                                </div>\n                                <div class=\"table-responsive \">\n                                    <table class=\"table row table-borderless\">\n                                        <tbody class=\"col-lg-12 col-xl-6 p-0\">\n                                        <tr>\n                                            <td><strong>Amount :</strong> {{$usrAmount}}</td>\n                                        </tr>\n                                        <tr>\n                                            <td><strong>Coin :</strong> {{$usrCoin}}</td>\n                                        </tr>\n                                        </tbody>\n                                        <tbody class=\"col-lg-12 col-xl-6 p-0\">\n                                        <tr>\n                                            <td><strong>---</strong>---</td>\n                                        </tr>\n                                        </tbody>\n                                    </table>\n                                </div>\n                            </div>\n                        </div>\n\n                    </div>\n                </div>\n            </div>\n        </div>\n        <!--Col Ends-->\n\n\n    </div>\n    <!-- ROW-1 CLOSED -->\n    </div>\n    </div>\n    <!-- CONTAINER CLOSED -->\n    </div>\n@endsection\n\n@section('js')\n    <script src=\"{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/plugins/chart/utils.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/plugins/echarts/echarts.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/plugins/apexcharts/apexcharts.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/plugins/peitychart/jquery.peity.min.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/plugins/peitychart/peitychart.init.js') }}\"></script>\n    <script src=\"{{ URL::asset('assets/js/index1.js') }}\"></script>\n@endsection\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/user/user_profile.blade.php b/resources/views/user/user_profile.blade.php
+--- a/resources/views/user/user_profile.blade.php	(revision 63bc4df0022d9adc9743d70561fdb959750de40c)
++++ b/resources/views/user/user_profile.blade.php	(date 1655469382757)
+@@ -158,12 +158,6 @@
+         </div><!-- COL-END -->
+ 
+ 
+-
+-
+-
+-
+-
+-
+         <!--Col Starts-->
+         <div class="col">
+         <div class="card">
+@@ -202,15 +196,75 @@
+         <!--Col Ends-->
+ 
+ 
++            <!-- ROW-2 OPEN -->
++
++                <div class="col-12">
++                    <div class="card">
++                        <div class="card-header ">
++                            <h3 class="card-title ">Projects</h3>
++                            <div class="card-options">
++                                <!--      <button id="add__new__list" type="button" class="btn btn-md btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus"></i> Add a new Project</button>
++                                   -->
++                            </div>
++                        </div>
++                        <div class="table-responsive" >
++                            <table id="grdDataTable" class="table table-hover card-table table-vcenter table-outline text-nowrap " >
++                                <thead>
++                                <tr>
++                                    <th scope="col">Share ID</th>
++                                    <th scope="col">Share Type</th>
++                                    <th scope="col">Post Text</th>
++                                    <th scope="col">Share Counts</th>
++                                    <th scope="col">Like Count</th>
++                                    <th scope="col">Comment Count </th>
++                                    <th scope="col">Detail </th>
++                                </tr>
++                                </thead>
++                                <tbody>
++
++                                </tbody>
++                            </table>
++                        </div>
++                    </div>
++                </div>
++
++            <!-- ROW-2 CLOSED -->
++
++
++
+     </div>
+     <!-- ROW-1 CLOSED -->
++
++
+     </div>
+     </div>
+     <!-- CONTAINER CLOSED -->
+     </div>
++
++
+ @endsection
+ 
+ @section('js')
++
++    <script type="text/javascript">
++        var myDataTable=null;
++        var filterData = '';
++        var pageDataPath = '{{route('user_share_dataservice')}}?data_type=1&id={{$user->id}}';
++
++        $(document).ready(function (){
++            myDataTable = getTable($("#grdDataTable"), pageDataPath + filterData, [
++                {data: 'id'},
++                {data: 'share_content_type'},
++                {data: 'post_text',},
++                {data: 'count_shares'},
++                {data: 'count_likes'},
++                {data: 'count_comments'},
++                {data: 'detail'},
++
++            ],[], null);
++        });
++    </script>
++
+     <script src="{{ URL::asset('assets/plugins/chart/Chart.bundle.js') }}"></script>
+     <script src="{{ URL::asset('assets/plugins/chart/utils.js') }}"></script>
+     <script src="{{ URL::asset('assets/plugins/echarts/echarts.js') }}"></script>
+Index: app/Http/Controllers/User/UserController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\n\nnamespace App\\Http\\Controllers\\User;\n\nuse App\\Http\\Controllers\\Controller;\nuse App\\Models\\Complaints;\nuse App\\Models\\SysCurrency;\nuse App\\Models\\SystemEventCategory;\nuse App\\Models\\User;\nuse App\\Models\\UserPayment;\nuse App\\Models\\UserShare;\nuse App\\Models\\UserVerifyRequest;\nuse App\\Utility\\ResultControl;\nuse Illuminate\\Http\\Request;\nuse Illuminate\\Support\\Facades\\Auth;\nuse Illuminate\\Support\\Facades\\DB;\nuse Illuminate\\Support\\Facades\\Hash;\nuse Illuminate\\Testing\\Fluent\\Concerns\\Has;\nuse Yajra\\DataTables\\DataTables;\n\nclass UserController extends Controller\n{\n    public function index(){\n        $user=User::orderby('id')->get();\n        return view('user.index',[\n           'user'=>$user\n        ]);\n    }\n\n    public function commission(){\n        return view('user.commission');\n    }\n\n    public function verifyRequests(){\n\n        return view('user.verify_requests');\n    }\n\n    public function usersVerified(){\n        return view('user.verified_user');\n    }\n\n    public function user_post_detail($post_id){\n       $user_post_detail= UserShare::where('id',$post_id)->first();\n        return view('user.post_detail',[\n            'post_id'=>$post_id,\n            'user_post_detail'=>$user_post_detail\n        ]);\n    }\n\n\n\n    public function userProfile($usr,$status){\n        // Status true = Editable\n        // Status false = Status\n\n        $usr=User::where('id',$usr)\n            ->first();\n\n        $usrAmount=UserPayment::where('user_id',$usr->id)->sum('amount');\n        $usrCoin=UserPayment::where('user_id',$usr->id)->sum('coin');\n\n\n        if ($status==\"status\"){\n            return view('user.user_profile',[\n                'user'=>$usr,\n                'usrAmount'=>$usrAmount,\n                'usrCoin'=>$usrCoin\n            ]);\n        }\n\n        if ($status==\"edit\"){\n            return view('user.user_edit',[\n                'user'=>$usr\n            ]);\n        }\n\n    }\n\n    public function editProfile(Request $request){\n        $data=$request->all();\n        User::where('username',$data['username'])->update([\n            'name'=>$data['name'],\n            'email'=>$data['email'],\n            'phone'=>$data['phone'],\n            'bio'=>$data['bio'],\n            'verify_status'=>$data['verify_status'],\n            'is_pro'=>$data['is_pro']\n        ]);\n        return redirect()->back();\n    }\n\n\n    public function dataservice(Request $request){\n        $inputs = $request->all();\n\n        $data = User::orderBy('id','asc');\n\n        if ($request->has('data_type') && $request->input('data_type') == 1) {\n\n            return $this->getDataTable(new DataTables(), $data, $inputs)\n                ->addColumn('detail', function ($query){\n                    return '<a href=\"/user/profile/'.$query->id.'/status\" class=\"btn btn-primary\">Detail</a>';\n                })\n                ->rawColumns(['detail',])\n             ->make(true);\n        }\n\n        return  ResultControl::Success('', $data->get());\n    }\n\n\n    public function verify_dataservice(Request $request){\n        $inputs = $request->all();\n\n        $data = UserVerifyRequest::where('user_verify_requests.verify_status',1)\n            ->orderby('user_id','asc')\n            ->join('users','users.id','=','user_verify_requests.user_id');\n\n        if ($request->has('data_type') && $request->input('data_type') == 1) {\n\n            return $this->getDataTable(new DataTables(), $data, $inputs)\n                ->addColumn('detail', function ($query){\n                    return '<a href=\"/user/profile/'.$query->id.'/verify_control\" class=\"\">Detail</a>';\n                })\n                ->rawColumns(['detail',])\n                ->make(true);\n        }\n\n        return  ResultControl::Success('', $data->get());\n    }\n\n    public function verifiedDataservice(Request $request){\n        $inputs = $request->all();\n\n        $data = User::join('user_verify_requests','user_verify_requests.user_id','=','users.id')\n            ->orderBy('count_followers','desc')\n            ->where('user_verify_requests.verify_status',2);\n\n        if ($request->has('data_type') && $request->input('data_type') == 1) {\n\n            return $this->getDataTable(new DataTables(), $data, $inputs)\n                ->addColumn('detail', function ($query){\n                    return '<a href=\"/user/profile/'.$query->id.'/status\" class=\"\">Detail</a>';\n                })\n                ->rawColumns(['detail',])\n                ->make(true);\n        }\n        return  ResultControl::Success('', $data->get());\n    }\n\n\n    public function shareDataservice(Request $request){\n        $inputs = $request->all();\n\n        $data = User::join('user_shares','user_shares.user_id','=','users.id')\n            ->orderBy('user_shares.id','desc');\n\n        if ($request->has('data_type') && $request->input('data_type') == 1) {\n\n            return $this->getDataTable(new DataTables(), $data, $inputs)\n                ->addColumn('share_content_type', function ($query){\n                   switch ($query->share_content_type){\n                       default:\n                           return \"Undefined\";\n                       case 1:\n                           return \"Text\";\n                       case 2:\n                           return \"Photo\";\n                       case 3:\n                           return \"Video\";\n\n                   }\n                })\n\n                ->addColumn('detail', function ($query){\n                    return '<a href=\"/user/profile/'.$query->id.'/post_detail\" class=\"btn btn-outline-primary\">Detail</a>';\n                })\n                ->rawColumns(['detail','share_content_type'])\n                ->make(true);\n        }\n        return  ResultControl::Success('', $data->get());\n    }\n\n\n\n    //Verify Control\n    public function verifyControl($usr){\n\n            $user=User::where('id',$usr)->first();\n            $usrverify=UserVerifyRequest::where('user_id',$user->id)->first();\n\n            return view('user.user_verify_control',[\n                'usr'=>$user,\n                'usrverify'=>$usrverify\n            ]);\n    }\n\n    // JS-POST being verified controller\n    public function verify(Request $request){\n\n        $data=$request->all();\n\n        UserVerifyRequest::where('user_id',$data['id'])\n            ->update([\n                'verify_status'=>intval($data['stt'])\n            ]);\n        User::where('id',$data['id'])\n            ->update([\n                'verify_status'=>intval($data['stt'])\n            ]);\n\n        return [\n            'success'   => true,\n            'data'      => $data\n        ];\n    }\n\n\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/Http/Controllers/User/UserController.php b/app/Http/Controllers/User/UserController.php
+--- a/app/Http/Controllers/User/UserController.php	(revision 63bc4df0022d9adc9743d70561fdb959750de40c)
++++ b/app/Http/Controllers/User/UserController.php	(date 1655470631969)
+@@ -153,11 +153,13 @@
+     public function shareDataservice(Request $request){
+         $inputs = $request->all();
+ 
+-        $data = User::join('user_shares','user_shares.user_id','=','users.id')
++        $data = User::where('user_shares.user_id',$request->input('id'))
++            ->join('user_shares','user_shares.user_id','=','users.id')
+             ->orderBy('user_shares.id','desc');
+ 
+         if ($request->has('data_type') && $request->input('data_type') == 1) {
+ 
++
+             return $this->getDataTable(new DataTables(), $data, $inputs)
+                 ->addColumn('share_content_type', function ($query){
+                    switch ($query->share_content_type){
+@@ -169,7 +171,6 @@
+                            return "Photo";
+                        case 3:
+                            return "Video";
+-
+                    }
+                 })
+ 
+@@ -178,8 +179,10 @@
+                 })
+                 ->rawColumns(['detail','share_content_type'])
+                 ->make(true);
++
++
+         }
+-        return  ResultControl::Success('', $data->get());
++
+     }
+ 
+ 
+Index: resources/views/user/post_detail.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('app.master')\n@section('css')\n    <link href=\"{{ URL::asset('assets/plugins/gallery/gallery.css')}}\" rel=\"stylesheet\">\n@endsection\n@section('content')\n\n    <!-- @if($user_post_detail->share_content_type==1)\n            <img src=\"https://sorsor.doersteam.net/{{$user_post_detail->text_path}}\">\n        @elseif($user_post_detail->share_content_type==2)\n            <img src=\"https://sorsor.doersteam.net/{{$user_post_detail->image_path}}\">\n        @elseif($user_post_detail->share_content_type==3)\n            <img src=\"https://sorsor.doersteam.net/{{$user_post_detail->video_path}}\"> -->\n\n\n        @endif\n\n        <!-- GALLERY DEMO OPEN -->\n        <div class=\"demo-gallery card\">\n            <div class=\"card-header\">\n                <div class=\"card-title\">Light Gallery</div>\n            </div>\n            <div class=\"card-body\">\n\n                <ul id=\"lightgallery\" class=\"list-unstyled row d-flex justify-content-center\" >\n                    <a href=\"\">\n                        <img class=\"img-responsive mb-0\" src=\"https://sorsor.doersteam.net/{{$user_post_detail->image_path}}\" alt=\"Thumb-2\">\n                    </a>\n                    </li>\n                </ul>\n\n                <div class=\"row mb-5\">\n                    <div class=\"col\">\n                        <div class=\"text-primary h2 d-flex justify-content-center\">Share Type</div>\n                        <div class=\"d-flex justify-content-center h4\">\n                            @if($user_post_detail->share_content_type==1)\n                                Text\n                            @elseif($user_post_detail->share_content_type==2)\n                                Photo\n                            @elseif($user_post_detail->share_content_type==3)\n\n                                Video\n                            @endif\n                        </div>\n                    </div>\n                    <div class=\"col\">\n                        <div class=\"text-primary h2 d-flex justify-content-center\">Share Count</div>\n                        <div class=\"d-flex justify-content-center h4\">{{$user_post_detail->count_shares}}</div>\n                    </div>\n                </div>\n                <div class=\"row mb-5 \">\n                    <div class=\"col\">\n                        <div class=\"text-primary h2 d-flex justify-content-center\">Like Count</div>\n                        <div class=\"d-flex justify-content-center h4\">\n                            {{$user_post_detail->count_likes}}\n                        </div>\n                    </div>\n                    <div class=\"col\">\n                        <div class=\"text-primary h2 d-flex justify-content-center\">Comment Count</div>\n                        <div class=\"d-flex justify-content-center h4\">\n                            {{$user_post_detail->count_comments}}\n\n                        </div>\n                    </div>\n                    <div class=\"col\">\n                        <div class=\"text-primary h2 d-flex justify-content-center\">Post Text</div>\n                        <div class=\"d-flex justify-content-center h4\">\n                            {{$user_post_detail->post_text}}\n\n                        </div>\n                    </div>\n\n                </div>\n            </div>\n        </div>\n        <!-- GALLERY DEMO CLOSED -->\n\n@endsection
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/user/post_detail.blade.php b/resources/views/user/post_detail.blade.php
+--- a/resources/views/user/post_detail.blade.php	(revision 63bc4df0022d9adc9743d70561fdb959750de40c)
++++ b/resources/views/user/post_detail.blade.php	(date 1655471784424)
+@@ -17,13 +17,22 @@
+         <!-- GALLERY DEMO OPEN -->
+         <div class="demo-gallery card">
+             <div class="card-header">
+-                <div class="card-title">Light Gallery</div>
++                <div class="card-title"> Post</div>
+             </div>
+             <div class="card-body">
++                <div class="row justify-content-center d-flex">
++                <div class="col-sm-5">
++                    <ul id="lightgallery" class="list-unstyled row ml-3">
++                        <li class="col-sm-12 mb-5 border-bottom-0" data-responsive="https://sorsor.doersteam.net/{{$user_post_detail->image_path}}" data-src="https://sorsor.doersteam.net/{{$user_post_detail->image_path}}" data-sub-html="<h4></h4>">
++                            <a href="">
++                                <img class="img-responsive mb-0 border-primary" src="https://sorsor.doersteam.net/{{$user_post_detail->image_path}}" alt="Thumb-2">
++                            </a>
++                        </li>
++                    </ul>
++                </div></div>
+ 
+                 <ul id="lightgallery" class="list-unstyled row d-flex justify-content-center" >
+                     <a href="">
+-                        <img class="img-responsive mb-0" src="https://sorsor.doersteam.net/{{$user_post_detail->image_path}}" alt="Thumb-2">
+                     </a>
+                     </li>
+                 </ul>
+@@ -74,4 +83,17 @@
+         </div>
+         <!-- GALLERY DEMO CLOSED -->
+ 
++@endsection
++
++@section('js')
++    <script src="{{ URL::asset('assets/plugins/gallery/picturefill.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lightgallery.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lightgallery-1.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-pager.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-autoplay.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-fullscreen.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-zoom.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-hash.js') }}"></script>
++    <script src="{{ URL::asset('assets/plugins/gallery/lg-share.js') }}"></script>
++
+ @endsection
+\ No newline at end of file
+Index: resources/views/user/user_edit.blade.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>@extends('app.master')\n\n@section('css')\n@endsection\n\n\n@section('header-title')\n    Edit User\n@endsection\n\n@section('content')\n    <!-- ROW-1 OPEN -->\n    <div class=\"row\">\n        <div class=\"col-lg-4 col-xl-4 col-md-12 col-sm-12\">\n            <div class=\"card\">\n                <div class=\"card-body\">\n                    <div class=\"text-center\">\n                        <div class=\"userprofile\">\n                            <div class=\"userpic  brround\"> <img src=\"https://sorsor.doersteam.net/{{$user->photo_path}}\" alt=\"Profile Photo\" class=\"userpicimg\"> </div>\n                            <h3 class=\"username text-dark mb-2\"></h3>\n                            <p class=\"mb-1 text-muted\">{{$user->username}} / {{ $user->name }}</p>\n                            <div class=\"socials text-center mt-3\">\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <div class=\"card-title\">Edit Password</div>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"d-flex mb-3\">\n                        <img alt=\"User Avatar\" class=\"rounded-circle avatar-lg mr-2\" src=\"{{URL::asset('assets/images/users/10.jpg')}}\">\n                        <div class=\"ml-auto mt-xl-2 mt-lg-0 ml-lg-2\">\n                            <a href=\"#\" class=\"btn btn-danger btn-sm mt-1 mb-1\"><i class=\"fe fe-camera-off mr-1\"></i>Delete profile</a>\n                        </div>\n                    </div>\n                    <div class=\"form-group\">\n                        <label class=\"form-label\">Change Password</label>\n                        <input type=\"password\" class=\"form-control\" value=\"password\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label class=\"form-label\">New Password</label>\n                        <input type=\"password\" class=\"form-control\" value=\"password\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label class=\"form-label\">Confirm Password</label>\n                        <input type=\"password\" class=\"form-control\" value=\"password\">\n                    </div>\n                </div>\n                <div class=\"card-footer text-right\">\n                    <a href=\"#\" class=\"btn btn-primary\">Updated</a>\n                </div>\n            </div>\n            <div class=\"card panel-theme\">\n                <div class=\"card-header\">\n                    <div class=\"float-left\">\n                        <h3 class=\"card-title\">Contact</h3>\n                    </div>\n                    <div class=\"clearfix\"></div>\n                </div>\n                <div class=\"card-body no-padding\">\n                    <ul class=\"list-group no-margin\">\n                        <li class=\"list-group-item\"><i class=\"fa fa-envelope mr-4\"></i>{{$user->email}}</li>\n                        <li class=\"list-group-item\"><i class=\"fa fa-phone mr-4\"></i>{{$user->phone}}</li>\n                    </ul>\n                </div>\n            </div>\n        </div>\n        <div class=\"col-lg-8 col-xl-8 col-md-12 col-sm-12\">\n            <form name=\"form\" action=\"{{route('ApplyChanges')}}\" method=\"post\">\n                @csrf\n            <div class=\"card\">\n                <div class=\"card-header\">\n                    <h3 class=\"card-title\">Edit Profile</h3>\n                </div>\n                <div class=\"card-body\">\n                    <div class=\"row\">\n                        <div class=\"col-lg-12 col-md-12\">\n                            <div class=\"form-group\">\n                                <label for=\"exampleInputname\">Name Surname</label>\n                                <input type=\"text\" class=\"form-control\" id=\"exampleInputname\" value=\"{{$user->name}}\" name=\"name\">\n                            </div>\n                        </div>\n\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"exampleInputEmail1\">User name</label>\n                        <input placeholder=\"{{$user->username}}\"  disabled type=\"text\" class=\"form-control\" id=\"exampleInputEmail1\" name=\"username\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"exampleInputEmail1\">Email address</label>\n                        <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" value=\"{{$user->email}}\" name=\"email\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label for=\"exampleInputnumber\">Contact Number</label>\n                        <input type=\"number\" class=\"form-control\" id=\"exampleInputnumber\" value=\"{{$user->phone}}\" name=\"phone\">\n                    </div>\n                    <div class=\"form-group\">\n                        <label class=\"form-label\">About Me</label>\n                        <textarea class=\"form-control\" rows=\"6\" placeholder=\"{{$user->bio}}\" name=\"bio\"></textarea>\n                    </div>\n                    <!--\n                    <div class=\"form-group\">\n                        <label class=\"form-label\">Website</label>\n                        <input class=\"form-control\" value=\"http://splink.com\">\n                    </div>\n                    -->\n                    <div class=\"form-group\">\n\n                        <div class=\"row\">\n                            <div class=\"col-md-4\">\n                                <label class=\"form-label\">Verified Status</label>\n                                <select class=\"form-control\" name=\"verify_status\">\n                                    <option value=\"{{NULL}}\">Not Verified</option>\n                                    <option value=\"1\" @if($user->verify_status==1) selected @endif>Pending</option>\n                                    <option value=\"2\" @if($user->verify_status==2) selected @endif>Approved</option>\n                                    <option value=\"3\" @if($user->verify_status==3) selected @endif>Rejected</option>\n                                </select>\n                            </div>\n                            <div class=\"col-md-4\">\n                                <label class=\"form-label\">Pro Status</label>\n                                <select class=\"form-control\" name=\"is_pro\" >\n                                    <option value=\"{{NULL}}\" @if($user->is_pro==NULL) selected @endif>Not PRO</option>\n                                    <option value=\"1\" @if($user->is_pro==1) selected @endif>PRO</option>\n                                </select>\n                            </div>\n                            <div class=\"col-md-4\">\n                                <label class=\"form-label\">NULL</label>\n                                <select class=\"form-control\" disabled>\n\n                                </select>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class=\"card-footer d-flex justify-content-end\">\n                    <button class=\"btn btn-success mt-1\">Save</button>\n                   <!-- <a href=\"#\" class=\"btn btn-danger mt-1\">Cancel</a> -->\n                </div>\n            </div>\n            </form>\n\n            </div>\n        </div>\n\n    <!-- ROW-1 CLOSED -->\n\n    <!-- ROW-2 OPEN -->\n    <div class=\"row mx-2\">\n        <div class=\"col-12\">\n            <div class=\"card\">\n                <div class=\"card-header \">\n                    <h3 class=\"card-title \">Projects</h3>\n                    <div class=\"card-options\">\n                  <!--      <button id=\"add__new__list\" type=\"button\" class=\"btn btn-md btn-primary \" data-toggle=\"modal\" data-target=\".bd-example-modal-lg\"><i class=\"fa fa-plus\"></i> Add a new Project</button>\n                     -->\n                    </div>\n                </div>\n                <div class=\"table-responsive\" >\n                    <table id=\"grdDataTable\" class=\"table table-hover card-table table-vcenter table-outline text-nowrap \" >\n                        <thead>\n                        <tr>\n                            <th scope=\"col\">Share ID</th>\n                            <th scope=\"col\">Share Type</th>\n                            <th scope=\"col\">Post Text</th>\n                            <th scope=\"col\">Share Counts</th>\n                            <th scope=\"col\">Like Count</th>\n                            <th scope=\"col\">Comment Count </th>\n                            <th scope=\"col\">Detail </th>\n                        </tr>\n                        </thead>\n                        <tbody>\n\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </div>\n    <!-- ROW-2 CLOSED -->\n\n\n    <!--CONTAINER CLOSED -->\n\n@endsection\n\n\n\n@section('js')\n\n\n    <script type=\"text/javascript\">\n        var myDataTable=null;\n        var filterData = '';\n        var pageDataPath = '{{route('user_share_dataservice')}}?data_type=1';\n\n        $(document).ready(function (){\n            myDataTable = getTable($(\"#grdDataTable\"), pageDataPath + filterData, [\n                {data: 'id'},\n                {data: 'share_content_type'},\n                {data: 'post_text',},\n                {data: 'count_shares'},\n                {data: 'count_likes'},\n                {data: 'count_comments'},\n                {data: 'detail'},\n\n            ],[], null);\n        });\n    </script>\n\n\n@endsection
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/resources/views/user/user_edit.blade.php b/resources/views/user/user_edit.blade.php
+--- a/resources/views/user/user_edit.blade.php	(revision 63bc4df0022d9adc9743d70561fdb959750de40c)
++++ b/resources/views/user/user_edit.blade.php	(date 1655469079467)
+@@ -147,39 +147,6 @@
+ 
+     <!-- ROW-1 CLOSED -->
+ 
+-    <!-- ROW-2 OPEN -->
+-    <div class="row mx-2">
+-        <div class="col-12">
+-            <div class="card">
+-                <div class="card-header ">
+-                    <h3 class="card-title ">Projects</h3>
+-                    <div class="card-options">
+-                  <!--      <button id="add__new__list" type="button" class="btn btn-md btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus"></i> Add a new Project</button>
+-                     -->
+-                    </div>
+-                </div>
+-                <div class="table-responsive" >
+-                    <table id="grdDataTable" class="table table-hover card-table table-vcenter table-outline text-nowrap " >
+-                        <thead>
+-                        <tr>
+-                            <th scope="col">Share ID</th>
+-                            <th scope="col">Share Type</th>
+-                            <th scope="col">Post Text</th>
+-                            <th scope="col">Share Counts</th>
+-                            <th scope="col">Like Count</th>
+-                            <th scope="col">Comment Count </th>
+-                            <th scope="col">Detail </th>
+-                        </tr>
+-                        </thead>
+-                        <tbody>
+-
+-                        </tbody>
+-                    </table>
+-                </div>
+-            </div>
+-        </div>
+-    </div>
+-    <!-- ROW-2 CLOSED -->
+ 
+ 
+     <!--CONTAINER CLOSED -->
+@@ -190,25 +157,4 @@
+ 
+ @section('js')
+ 
+-
+-    <script type="text/javascript">
+-        var myDataTable=null;
+-        var filterData = '';
+-        var pageDataPath = '{{route('user_share_dataservice')}}?data_type=1';
+-
+-        $(document).ready(function (){
+-            myDataTable = getTable($("#grdDataTable"), pageDataPath + filterData, [
+-                {data: 'id'},
+-                {data: 'share_content_type'},
+-                {data: 'post_text',},
+-                {data: 'count_shares'},
+-                {data: 'count_likes'},
+-                {data: 'count_comments'},
+-                {data: 'detail'},
+-
+-            ],[], null);
+-        });
+-    </script>
+-
+-
+ @endsection
+\ No newline at end of file
