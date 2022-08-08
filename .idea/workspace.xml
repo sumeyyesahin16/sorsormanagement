@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7b7d7f-303c-4fe7-99de-43e49e8a7828" name="Changes" comment="dev">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2022_15_28_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_06_2022_15_28__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Events/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Events/EventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Share/ShareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Share/ShareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/share/photos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/share/photos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/share/posts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/share/posts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/share/videos.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/share/videos.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/share.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/share.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,11 +152,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/assets/plugins/forn-wizard/css" />
@@ -212,6 +216,14 @@
       <workItem from="1655447415445" duration="1034000" />
       <workItem from="1655453732045" duration="9728000" />
       <workItem from="1655584948844" duration="125000" />
+      <workItem from="1655815846559" duration="61000" />
+      <workItem from="1655818145234" duration="962000" />
+      <workItem from="1655931056981" duration="132000" />
+      <workItem from="1655985026632" duration="181000" />
+      <workItem from="1655985291351" duration="1387000" />
+      <workItem from="1657448592038" duration="611000" />
+      <workItem from="1658735498437" duration="1670000" />
+      <workItem from="1659984829594" duration="626000" />
     </task>
     <task id="LOCAL-00001" summary="dev">
       <created>1655454629986</created>
@@ -227,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655466498420</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="dev">
+      <created>1655715657783</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655715657783</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
